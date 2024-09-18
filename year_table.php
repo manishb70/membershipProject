@@ -73,7 +73,7 @@
                         <div class="">
                             <label class="block w-60 mb-1 font-bold text-xs font-medium text-gray-900 dark:text-white">
                                 Total Amount : </label>
-                            <input type="text" name="total_amount" id="total_amount" disabled
+                            <input type="text" name="total_amount" id="total_amount"
                                 class="w-60 rounded-md h-8 border mb-3 text-xs border-gray-500 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         </div>
                     </fieldset>
@@ -104,7 +104,7 @@
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            
+
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Member
@@ -158,8 +158,9 @@
 
 
         <center>
-        <button type="submit"
-        class="text-white border border-blue-700 bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-xs px-5 py-2.5 text-center me-2 mb-1 font-bold dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 ">Submit</button>
+            <button type="submit"
+                onclick="submitRowsToSaveTOSubmit()"
+                class="text-white border border-blue-700 bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-xs px-5 py-2.5 text-center me-2 mb-1 font-bold dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 ">Submit</button>
         </center>
     </div>
 
@@ -167,11 +168,10 @@
 
 </body>
 <script>
+    $(document).ready(function() {
 
-    $(document).ready(function () {
 
-
-        const addTableRowToTbody = (membership_type, year_of_membership, one_time_enrollment, yearly_charges, share_allocated, total_amount) => {
+        const addTableRowToTbody = (membership_type, year_of_membership, one_time_enrollment, yearly_charges, share_allocated, total_amount,row_id) => {
 
 
             let tbody = document.getElementById("SubmitedRowDataInTableBody")
@@ -182,7 +182,7 @@
             tr.innerHTML = ` <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
 
-                            <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <input id="default-checkbox" row-id='${row_id}' type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                         </th>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
         ${membership_type}
@@ -217,7 +217,7 @@
 
 
 
-        $('#myForm').submit(function (event) {
+        $('#myForm').submit(function(event) {
 
             event.preventDefault();
             var form = document.getElementById('myForm');
@@ -238,33 +238,75 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            console.log("hello");
+
+
             $.ajax({
                 url: 'year_action.php',
                 method: 'POST',
                 data: formData,
+                dataType:"JSON",
                 processData: false,
                 contentType: false,
-                success: function (response) {
+                success: function(response) {
+
 
                     alert('Your form has been sent successfully.');
 
-                    addTableRowToTbody(membership_type, year_of_membership, one_time_enrollment, yearly_charges, share_allocated, total_amount)
+                    let insert_id =response.insert_id
+
+                    addTableRowToTbody(membership_type, year_of_membership, one_time_enrollment, yearly_charges, share_allocated, total_amount,insert_id)
 
                     $("#dataTableFees").slideDown(1000)
 
+                    console.log(response);
 
 
 
 
                 },
-                error: function (xhr, status, error) {
+                error: function(xhr, status, error) {
                     alert('Your form was not sent successfully.');
                     console.error(error);
                 }
             });
-            var form = document.getElementById('myForm').reset();
+            // var form = document.getElementById('myForm').reset();
         });
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -295,12 +337,82 @@
 
 
 
+    const submitRowsToSaveTOSubmit = () => {
+
+
+
+        let tbody = document.getElementById("SubmitedRowDataInTableBody")
+
+
+        let trows = tbody.querySelectorAll("tr")
+
+
+
+        let checkedRow = []
+
+        trows.forEach(row => {
+
+            // console.log(row);
+
+
+
+                
+                let checkbox = (row.querySelector("input[type='checkbox']"))
+
+            // console.log(checkbox);
+
+
+            
+            
+            if (checkbox.checked) {
+                
+                let checkboxId = (row.querySelector("input[type='checkbox']")).getAttribute("row-id")
+                checkedRow.push(checkboxId)
+            }
+
+
+
+
+        })
+
+
+
+        console.log(checkedRow);
+
+            let data = {
+                setUpdateToSubmit:"setUpdateToSubmit",
+                rowIds:checkedRow
+                
+            }   
+
+
+        $.post("./phpAjax/yearActionAjax.php", data,
+            function (data, textStatus, jqXHR) {
+
+                if(data.success){
+                    alert("Data updated success fully")
+                }
+                console.log(object);
+            },
+            "json"
+        ).fail(error=>{
+            console.log(error);
+        })
+
+
+        
 
 
 
 
 
 
+
+
+
+
+
+    }
 </script>
 
 </html>

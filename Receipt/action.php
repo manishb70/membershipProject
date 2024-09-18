@@ -13,7 +13,7 @@ $date_amount_paid = $_POST['date_amount_paid'];
 $utr_no = $_POST['utr_no'];
 $transaction_date = $_POST['transaction_date'];
 $balance = $_POST['balance'];
-// $balance =  19;
+// $balance =  19;utr_no
 // $status = $_POST['status'];
 $membership_number = $_POST['membership_number'];
 $formStatus = $_POST['formStatus'];
@@ -80,6 +80,7 @@ if ($conn->connect_error) {
 
 
 
+// echo  var_dump($_POST);
 
 
 $sql = "INSERT INTO receipt_details(receipt_no, payment_method, membership_type, year_of_membership, one_time_enrollment_fee, yearly_charges, share_allocated, total_amount, next_amount_due, date_amount_paid, utr_no, transaction_date, balance, status ,member_id,recieipt_form_status) 

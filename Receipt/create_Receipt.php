@@ -31,9 +31,9 @@
                             <input type="text" name="membership_number"
                                 onchange="setMembershipName(event)"
                                 class="w-60 rounded-md border h-8 mb-3 text-xs border-gray-500 bg-white py-3 p-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                            <button type="submit"
+                            <!-- <button type="submit"
                                 class="inline-flex items-center py-1 px-4 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search
-                            </button>
+                            </button> -->
                         </div>
                         <div class="">
                             <label
@@ -41,9 +41,9 @@
                                 Name : </label>
                             <input type="text" name="membership_name" id="membership_name"
                                 class="w-60 rounded-md border h-8 mb-3 text-xs border-gray-500 bg-white py-3 p-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                            <button type="submit"
+                            <!-- <button type="submit"
                                 class="inline-flex items-center py-1 px-4 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search
-                            </button>
+                            </button> -->
                         </div>
                         <div class="">
                             <label
@@ -734,7 +734,7 @@
             console.log(balance)
 
 
-
+            
 
             $("#balance").val(balance)
 

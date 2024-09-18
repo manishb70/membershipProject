@@ -43,7 +43,9 @@ const getUSerDataByUserName = () => {
             $("#password").val(userdata.password)
             $("#effective_from_date").val(userdata.effective_from_date)
             $("#effective_to_date").val(userdata.effective_to_date)
+            $("#days-access").val(userdata.days)
 
+            // console.log(days);
 
 
 

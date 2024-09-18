@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "Algo@123";
 $dbname = "membership_project";
 
 // Create connection

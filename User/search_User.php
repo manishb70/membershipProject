@@ -153,7 +153,7 @@
                     <input type="radio" name="password" id="" class="mr-3" disabled>
                     <label class="w-14 inline-block mb-2 font-bold text-xs font-medium text-gray-900 dark:text-white">
                         Days : </label>
-                    <input type="text" name="days"
+                    <input type="text" name="days" id="days-access"
                         class="w-40 rounded-md border text-xs border-gray-500 mb-3 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md"
                         disabled />
                 </div>

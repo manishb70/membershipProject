@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password1 = "root";
+$password1 = "Algo@123";
 $dbname = "membership_project";
 
 $conn = new mysqli($servername, $username, $password1, $dbname);
@@ -94,7 +94,16 @@ VALUES ('$user_id','$user_creation', '$user_creation_from_date', '$user_creation
 }
 
 } else {
+
+
     echo "Error: " . $sql . "<br>" . $conn->error;
+
+
+        
+
+
+
+
 }
 
 

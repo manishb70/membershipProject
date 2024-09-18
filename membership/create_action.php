@@ -3,7 +3,7 @@
 include("./db.php");
 
 // $membership_no = $_POST['membership_no'];
-$creation_date = $_POST['creation_date'];
+$creation_date = isset($_POST['creation_date']) ? $_POST['creation_date'] : date('Y-m-d');
 $starting_fy = $_POST['starting_fy'];
 $company_name = $_POST['company_name'];
 $company_address = $_POST['company_address'];

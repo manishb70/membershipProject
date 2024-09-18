@@ -43,7 +43,7 @@ const setDataToMemebershiptArea = () => {
         }
 
         $.ajax({
-            url: '../phpAJax/receiptAjax.php',
+            url: '../phpAjax/receiptAjax.php',
             method: 'GET',
             data: data,
             dataType: "JSON",
@@ -126,6 +126,7 @@ const setDataToMemebershiptArea = () => {
 const setDataToMemebershiptOnlyArea = () => {
 
 
+
     let getMemeberShipDataId = $("#membership_no").val()
 
 
@@ -160,7 +161,7 @@ const setDataToMemebershiptOnlyArea = () => {
         }
 
         $.ajax({
-            url: '../phpAJax/receiptAjax.php',
+            url: '../phpAjax/receiptAjax.php',
             method: 'GET',
             data: data,
             dataType: "JSON",
