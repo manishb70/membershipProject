@@ -69,7 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $receipt_report_to_date = $_POST['receipt_report_to_date'];
 
 
-
+    $fess_creation = isset($_POST['fess_creation']) ? 1 : 0;
+    $fees_search = isset($_POST['fees_search']) ? 1 : 0;
 
 
 
@@ -88,8 +89,8 @@ VALUES ('$user_name', '$password', '$mobile_no', '$emai_id', '$effective_from_da
 
 
 
-        $sql2 = "INSERT INTO user_role(user_id, user_creation, user_creation_from_date, user_creation_to_date, user_search, user_search_from_date, user_search_to_date, membership_create, membership_create_from_date, membership_create_to_date, membership_search, membership_search_from_date, membership_search_to_date, membership_report, membership_report_from_date, membership_report_to_date, receipt_creation, receipt_creation_from_date, receipt_creation_to_date, receipt_search, receipt_search_from_date, receipt_search_to_date, receipt_report, receipt_report_from_date, receipt_report_to_date)
-VALUES ('$user_id','$user_creation', '$user_creation_from_date', '$user_creation_to_date','$user_search', '$user_search_from_date', '$user_search_to_date', '$membership_create', '$membership_create_from_date', '$membership_create_to_date', '$membership_search', '$membership_search_from_date', '$membership_search_to_date', '$membership_report', '$membership_report_from_date', '$membership_report_to_date', '$receipt_creation', '$receipt_creation_from_date', '$receipt_creation_to_date', '$receipt_search', '$receipt_search_from_date', '$receipt_search_to_date', '$receipt_report', '$receipt_report_from_date', '$receipt_report_to_date')";
+        $sql2 = "INSERT INTO user_role(user_id, user_creation, user_creation_from_date, user_creation_to_date, user_search, user_search_from_date, user_search_to_date, membership_create, membership_create_from_date, membership_create_to_date, membership_search, membership_search_from_date, membership_search_to_date, membership_report, membership_report_from_date, membership_report_to_date, receipt_creation, receipt_creation_from_date, receipt_creation_to_date, receipt_search, receipt_search_from_date, receipt_search_to_date, receipt_report, receipt_report_from_date, receipt_report_to_date,fees_search,fess_creation)
+VALUES ('$user_id','$user_creation', '$user_creation_from_date', '$user_creation_to_date','$user_search', '$user_search_from_date', '$user_search_to_date', '$membership_create', '$membership_create_from_date', '$membership_create_to_date', '$membership_search', '$membership_search_from_date', '$membership_search_to_date', '$membership_report', '$membership_report_from_date', '$membership_report_to_date', '$receipt_creation', '$receipt_creation_from_date', '$receipt_creation_to_date', '$receipt_search', '$receipt_search_from_date', '$receipt_search_to_date', '$receipt_report', '$receipt_report_from_date', '$receipt_report_to_date','$fees_search','$fess_creation')";
 
         if ($conn->query($sql2) === TRUE) {
             echo "<script>alert('User role assign successfully')</script>";
@@ -129,6 +130,8 @@ VALUES ('$user_id','$user_creation', '$user_creation_from_date', '$user_creation
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
 
     <title>Create User Form</title>
 </head>
@@ -145,7 +148,7 @@ VALUES ('$user_id','$user_creation', '$user_creation_from_date', '$user_creation
                                 class=" block mb-2 font-bold text-xs font-medium text-gray-900 dark:text-white">User
                                 Name :
                             </label>
-                            <input type="text" name="user_name" required
+                            <input type="text" name="user_name" id="username" required
                                 class="w-40 rounded-md border text-xs border-gray-500 mb-3 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         </div>
                         <div class="">
@@ -503,6 +506,44 @@ VALUES ('$user_id','$user_creation', '$user_creation_from_date', '$user_creation
                                                 class="w-40 rounded-md text-xs bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                         </td>
                                     </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <th scope="row"
+                                            class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            Year fees Creation
+                                        </th>
+                                        <td class="px-10 py-4">
+                                            <input name="fess_creation" type="checkbox" value=""
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+
+                                        </td>
+                                        <td class="px-10 py-4">
+                                            <input type="date" name="receipt_report_from_date"
+                                                class="w-40 rounded-md text-xs bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                                        </td>
+                                        <td class="px-10 py-4">
+                                            <input type="date" name="receipt_report_to_date"
+                                                class="w-40 rounded-md text-xs bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <th scope="row"
+                                            class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            Fees Search
+                                        </th>
+                                        <td class="px-10 py-4">
+                                            <input name="fees_search" type="checkbox" value=""
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+
+                                        </td>
+                                        <td class="px-10 py-4">
+                                            <input type="date" name="receipt_report_from_date"
+                                                class="w-40 rounded-md text-xs bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                                        </td>
+                                        <td class="px-10 py-4">
+                                            <input type="date" name="receipt_report_to_date"
+                                                class="w-40 rounded-md text-xs bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -566,5 +607,71 @@ VALUES ('$user_id','$user_creation', '$user_creation_from_date', '$user_creation
 
     </SCRipt>
 </body>
+
+
+<script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+<script>
+  $( function() {
+      
+      
+      
+      
+          var availableTags = [
+          
+          ];
+        
+
+    $.getJSON("../phpAjax/userAjax.php", {getUSersNameDetails:"getUSersNameDetails"},
+        function (data) {
+
+
+            console.log(data);
+
+            if(data.success){
+
+                data.usernames_data.forEach(name => {
+                    console.log(name.user_name);
+
+                    availableTags.push(name.user_name)
+
+
+
+                });
+
+
+
+
+            }
+
+
+        }
+    ).fail(error=>{
+        console.log(error);
+    })
+
+
+
+    $( "#username" ).autocomplete({
+      source: availableTags
+    });
+ 
+
+
+
+
+
+
+
+
+
+
+
+} );
+  </script>
+
+
+
+
+
 
 </html>

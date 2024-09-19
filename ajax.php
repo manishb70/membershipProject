@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $user_id = $row["id"];
 
 
-                $sql = "SELECT * FROM for_office.admin_roles WHERE admin_id = $user_id;";
+                $sql = "SELECT * FROM membership_project.user_role WHERE user_id = $user_id;";
 
                 $result = mysqli_query($conn, $sql);
 
@@ -56,15 +56,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $row = mysqli_fetch_assoc($result);
 
                 // Convert values to integers
-                // $_SERVER["user_viewOnly"] = (int) $row["user_viewOnly"];
-                // $_SERVER["user_write"] = (int) $row["user_write"];
-                // $_SESSION["admin_viewOnly"] = (int) $row["admin_viewOnly"];
-                // $_SESSION["admin_write"] = (int) $row["admin_write"];
-                // $_SESSION["admin_write"] = (int) $row["admin_write"];
-                // $_SESSION["store_manager"] = (int) $row["store_manager"];
-                // $_SESSION["store_isseuer"] = (int) $row["store_isseuer"];
-                // $_SESSION["store_genrate"] = (int) $row["store_genrate"];
-                // $_SESSION["PO_appover"] = (int) $row["PO_appover"];
+                $_SESSION["user_creation"] = (int) $row["user_creation"];
+                $_SESSION["membership_create"] = (int) $row["membership_create"];
+                $_SESSION["membership_search"] = (int) $row["membership_search"];
+                $_SESSION["receipt_creation"] = (int) $row["receipt_creation"];
+                $_SESSION["receipt_search"] = (int) $row["receipt_search"];
+                $_SESSION["user_search"] = (int) $row["user_search"];
+                $_SESSION["membership_report"] = (int) $row["membership_report"];
+                $_SESSION["receipt_report"] = (int) $row["receipt_report"];
+                $_SESSION["fees_search"] = (int) $row["fees_search"];
+                $_SESSION["fess_creation"] = (int) $row["fess_creation"];
+                
 
                 // $yes = $_SERVER["user_viewOnly"];
                 // $user_write = (int) $row["user_write"];

@@ -136,21 +136,21 @@
                                 class="block  mb-1 font-bold text-xs font-medium text-gray-900 dark:text-white">Company
                                 Contact Person name :
                             </label>
-                            <input type="text" name="person_name" placeholder="Enter person name"
+                            <input type="text" name="person_name" placeholder="Enter person name" required
                                 class="w-60 rounded-md h-8 border mb-3 text-xs border-gray-500 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         </div>
                         <div class="">
                             <label
                                 class="block w-60 mb-1 font-bold text-xs font-medium text-gray-900 dark:text-white">Contact
                                 Person Email id : </label>
-                            <input type="text" name="person_email_id" placeholder="Enter perosn email id"
+                            <input type="text" name="person_email_id" placeholder="Enter perosn email id" required
                                 class="w-60 rounded-md h-8 border mb-3 text-xs border-gray-500 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         </div>
                         <div class="">
                             <label
                                 class="block w-60 mb-1 font-bold text-xs font-medium text-gray-900 dark:text-white">Contact
                                 Person Phone Number : </label>
-                            <input type="text" name="person_phone_no" placeholder="Enter perosn  phone number"
+                            <input type="text" name="person_phone_no" placeholder="Enter perosn  phone number" required
                                 class="w-60 rounded-md border h-8 mb-3 text-xs border-gray-500 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         </div>
                     </fieldset>
@@ -163,7 +163,7 @@
                                     Aadhar Card :
                                 </label>
                                 <input type="text" name="udayam_aadhar_card"
-                                    placeholder="Enter udayam aadhar card number"
+                                    placeholder="Enter udayam aadhar card number" required
                                     class="w-60 rounded-md h-8 border mb-4 text-xs border-gray-500 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                             </div>
                             <div class="">
@@ -171,7 +171,7 @@
                                     class="block w-60 mb-1 font-bold text-xs font-medium text-gray-900 dark:text-white">Old
                                     Membership Number : </label>
                                 <input type="text" name="old_membership_number"
-                                    placeholder="Enter old membership number"
+                                    placeholder="Enter old membership number"  required
                                     class="w-60 rounded-md h-8 border mb-4 text-xs border-gray-500 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                             </div>
                         </div>
@@ -182,14 +182,14 @@
                                 <label
                                     class="block w-60 mb-1 font-bold text-xs font-medium text-gray-900 dark:text-white">PAN
                                     No : </label>
-                                <input type="text" name="pan_no" placeholder="Enter pan number"
+                                <input type="text" name="pan_no" placeholder="Enter pan number" required
                                     class="w-60 rounded-md h-8 border mb-4 text-xs border-gray-500 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                             </div>
                             <div class="">
                                 <label
                                     class="block w-60 mb-1 font-bold text-xs font-medium text-gray-900 dark:text-white">GST
                                     No : </label>
-                                <input type="text" name="gst_no" placeholder="Enter GST number"
+                                <input type="text" name="gst_no" placeholder="Enter GST number" required
                                     class="w-60 rounded-md h-8 border mb-4 text-xs border-gray-500 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                             </div>
                         </div>
@@ -1003,6 +1003,9 @@ ${receipt_no}
 
 
                 let input = Element.querySelector("input[type='checkbox']")
+
+
+
 
 
 

@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +26,10 @@
 
 </style>
 <body>
+<?php  include("./navbar.php"); ?>
     <div id="create_section" class="mt-3 border border-gray-900 p-5 rounded-lg mx-5">
+
+    
         <h1 class="text-center underline uppercase text-3xl mb-2 font-bold">View Receipt Details Form
         </h1>
         <form action="action.php" method="post" id="myForm">

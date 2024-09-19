@@ -66,7 +66,10 @@ $receipt_report_to_date = $_POST['receipt_report_to_date'];
 
 
 
-
+// $fees_search = isset($_POST['fees_search']) ? 1 : 0;
+// $fees_search =  1 ;
+$fess_creation =  1 ;
+// $fess_creation = isset($_POST['fess_creation']) ? 1 : 0;
 
 
 
@@ -84,8 +87,8 @@ if ($conn->query($sql) === TRUE) {
 
 
     
-$sql2 = "INSERT INTO user_role(user_id, user_creation, user_creation_from_date, user_creation_to_date, user_search, user_search_from_date, user_search_to_date, membership_create, membership_create_from_date, membership_create_to_date, membership_search, membership_search_from_date, membership_search_to_date, membership_report, membership_report_from_date, membership_report_to_date, receipt_creation, receipt_creation_from_date, receipt_creation_to_date, receipt_search, receipt_search_from_date, receipt_search_to_date, receipt_report, receipt_report_from_date, receipt_report_to_date)
-VALUES ('$user_id','$user_creation', '$user_creation_from_date', '$user_creation_to_date','$user_search', '$user_search_from_date', '$user_search_to_date', '$membership_create', '$membership_create_from_date', '$membership_create_to_date', '$membership_search', '$membership_search_from_date', '$membership_search_to_date', '$membership_report', '$membership_report_from_date', '$membership_report_to_date', '$receipt_creation', '$receipt_creation_from_date', '$receipt_creation_to_date', '$receipt_search', '$receipt_search_from_date', '$receipt_search_to_date', '$receipt_report', '$receipt_report_from_date', '$receipt_report_to_date')";
+$sql2 = "INSERT INTO user_role(user_id, user_creation, user_creation_from_date, user_creation_to_date, user_search, user_search_from_date, user_search_to_date, membership_create, membership_create_from_date, membership_create_to_date, membership_search, membership_search_from_date, membership_search_to_date, membership_report, membership_report_from_date, membership_report_to_date, receipt_creation, receipt_creation_from_date, receipt_creation_to_date, receipt_search, receipt_search_from_date, receipt_search_to_date, receipt_report, receipt_report_from_date, receipt_report_to_date,fess_creation,fees_search)
+VALUES ('$user_id','$user_creation', '$user_creation_from_date', '$user_creation_to_date','$user_search', '$user_search_from_date', '$user_search_to_date', '$membership_create', '$membership_create_from_date', '$membership_create_to_date', '$membership_search', '$membership_search_from_date', '$membership_search_to_date', '$membership_report', '$membership_report_from_date', '$membership_report_to_date', '$receipt_creation', '$receipt_creation_from_date', '$receipt_creation_to_date', '$receipt_search', '$receipt_search_from_date', '$receipt_search_to_date', '$receipt_report', '$receipt_report_from_date', '$receipt_report_to_date' ,'$fess_creation','$fees_search')";
 
     if ($conn->query($sql2) === TRUE) {
         echo "New record created successfully";
@@ -99,7 +102,7 @@ VALUES ('$user_id','$user_creation', '$user_creation_from_date', '$user_creation
     echo "Error: " . $sql . "<br>" . $conn->error;
 
 
-        
+
 
 
 

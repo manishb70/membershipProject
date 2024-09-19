@@ -50,54 +50,63 @@ const getUSerDataByUserName = () => {
 
 
 
-            if (userdata.user_creation) {
+
+
+            if (parseInt(userdata.user_creation)) {
                 $("#user_creation").prop("checked", true)
+                console.log(userdata.user_creation);
             } else {
                 $("#user_creation").prop("checked", false)
             }
 
-            if (userdata.user_search) {
+            if (parseInt(userdata.user_search)) {
                 $("#user_search").prop("checked", true)
             } else {
                 $("#user_search").prop("checked", false)
             }
 
-            if (userdata.user_report) {
+            if (parseInt(userdata.user_report)) {
                 $("#user_report").prop("checked", true)
             } else {
                 $("#user_report").prop("checked", false)
             }
 
-            if (userdata.membership_create) {
+            if (parseInt(userdata.membership_create)) {
                 $("#membership_create").prop("checked", true)
             } else {
                 $("#membership_create").prop("checked", false)
             }
             
-            if (userdata.membership_search) {
+            if (parseInt(userdata.membership_search)) {
                 $("#membership_search").prop("checked", true)
             } else {
                 $("#membership_search").prop("checked", false)
  
             }
  
-            if (userdata.membership_report) {
+            if (parseInt(userdata.membership_report)) {
                 $("#membership_report").prop("checked", true)
             } else {
                 $("#membership_report").prop("checked", false)
  
             }
  
-            if (userdata.receipt_creation) {
+            if (parseInt(userdata.receipt_creation)) {
                 $("#receipt_creation").prop("checked", true)
             } else {
                 $("#receipt_creation").prop("checked", false)
             }
  
-            if (userdata.receipt_search) {
+            if (parseInt(userdata.receipt_search)) {
                 $("#receipt_search").prop("checked", true)
             } else {
                 $("#receipt_search").prop("checked", false)
+            }
+ 
+            if (parseInt(userdata.receipt_report)) {
+                $("#receipt_report").prop("checked", true)
+            } else {
+                $("#receipt_report").prop("checked", false)
             }
  
 

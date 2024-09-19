@@ -304,28 +304,7 @@
                                                 disabled />
                                         </td>
                                     </tr>
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                        <th scope="row"
-                                            class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            View User Report
-                                        </th>
-                                        <td class="px-10 py-4">
-                                            <input name="user_report" id="user_report" type="checkbox" value=""
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                                                disabled>
-
-                                        </td>
-                                        <td class="px-10 py-4">
-                                            <input type="date" name="user_report_from_date"
-                                                class="w-40 rounded-md text-xs bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md"
-                                                disabled />
-                                        </td>
-                                        <td class="px-10 py-4">
-                                            <input type="date" name="user_report_to_date"
-                                                class="w-40 rounded-md text-xs bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md"
-                                                disabled />
-                                        </td>
-                                    </tr>
+                                 
                                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                         <th scope="row"
                                             class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
