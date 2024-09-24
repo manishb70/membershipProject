@@ -19,6 +19,8 @@
 
         </h1>
         <form action="" method="post" id="myForm">
+            <button type="text" id="newrecgen" onclick="  location.reload();"
+                class="text-white  ml-11 hidden  border border-blue-700 bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-xs px-5 py-2.5 text-center me-2 mb-1 font-bold dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 ">Create new record</button>
             <div class="">
                 <div class="flex flex-wrap gap-x-8 justify-center">
                     <fieldset class="w-1/6 border-2 border-gray-900 p-5 rounded-lg">
@@ -87,7 +89,7 @@
                                 <label
                                     class="block w-56 mb-1 font-bold text-xs font-medium text-gray-900 dark:text-white">Company
                                     Email id : </label>
-                                <input type="text" name="company_email_id" placeholder="Enter company email id" required
+                                <input type="email" name="company_email_id" placeholder="Enter company email id" required
                                     class="w-56 rounded-md h-8 border mb-3 text-xs border-gray-500 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                             </div>
                             <div class="">
@@ -143,7 +145,7 @@
                             <label
                                 class="block w-60 mb-1 font-bold text-xs font-medium text-gray-900 dark:text-white">Contact
                                 Person Email id : </label>
-                            <input type="text" name="person_email_id" placeholder="Enter perosn email id" required
+                            <input type="email" name="person_email_id" placeholder="Enter perosn email id" required
                                 class="w-60 rounded-md h-8 border mb-3 text-xs border-gray-500 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         </div>
                         <div class="">
@@ -171,7 +173,7 @@
                                     class="block w-60 mb-1 font-bold text-xs font-medium text-gray-900 dark:text-white">Old
                                     Membership Number : </label>
                                 <input type="text" name="old_membership_number"
-                                    placeholder="Enter old membership number"  required
+                                    placeholder="Enter old membership number" required
                                     class="w-60 rounded-md h-8 border mb-4 text-xs border-gray-500 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                             </div>
                         </div>
@@ -180,11 +182,25 @@
                         <div class="flex flex-wrap justify-around">
                             <div class="">
                                 <label
-                                    class="block w-60 mb-1 font-bold text-xs font-medium text-gray-900 dark:text-white">PAN
-                                    No : </label>
-                                <input type="text" name="pan_no" placeholder="Enter pan number" required
+                                    class=" font-bold text-xs font-medium text-gray-900 dark:text-white">PAN
+                                    No : </label><br>
+                                <input type="text" id="panInput" onchange="checkPanValid()" onkeyup="validateInput()" name="pan_no" placeholder="Enter pan number" required
                                     class="w-60 rounded-md h-8 border mb-4 text-xs border-gray-500 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                             </div>
+
+
+                            <br>
+                            <div id="remarks_area" class=" hidden flex  flex-col ">
+                                <label
+                                    class=" font-bold text-xs  font-medium text-red-600 dark:text-white">Member name : <span class="text-green-600" id="mamber_name"> ABC</span>
+                                    <br>
+                                    Membership number : <span class="text-green-600" id="mamber_number"> ABC</span></label>
+
+
+                                <input type="text" name="user_remarks" placeholder="Enter remarks"
+                                    class="w-60  rounded-md h-8 border mb-4 text-xs border-gray-500 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                            </div>
+
                             <div class="">
                                 <label
                                     class="block w-60 mb-1 font-bold text-xs font-medium text-gray-900 dark:text-white">GST
@@ -193,16 +209,18 @@
                                     class="w-60 rounded-md h-8 border mb-4 text-xs border-gray-500 bg-white py-3 pl-2 text-[#6B7280] h-6 outline-none focus:border-[#6A64F1] focus:shadow-md" />
                             </div>
                         </div>
+
                     </fieldset>
                 </div>
             </div>
             <div class="w-full mt-5 flex flex-wrap justify-around">
                 <button type="text" name="save-btn"
-                    class="text-white border border-blue-700 bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-xs px-5 py-2.5 text-center me-2 mb-1 font-bold dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 ">Save</button>
+                    class="text-white border border-blue-700 bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-xs px-5 py-2.5 text-center me-2 mb-1 font-bold dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 ">Submit</button>
                 <!-- <button type="submit"
                     class="text-white border border-blue-700 bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-xs px-5 py-2.5 text-center me-2 mb-1 font-bold dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 ">Submit</button> -->
             </div>
         </form>
+
 
 
 
@@ -212,6 +230,11 @@
                 Details</button>
 
         </center>
+
+
+
+
+
 
     </div>
 
@@ -579,6 +602,20 @@
         </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <center>
             <a type="text" onclick="updateSubmitData()"
                 style="margin-top: 10px;"
@@ -604,6 +641,15 @@
             var formData = new FormData(form);
 
 
+
+
+            console.log()
+
+
+
+
+
+
             $.ajax({
                 url: 'create_action.php',
                 method: 'POST',
@@ -627,6 +673,7 @@
 
 
                     $("button[name='rec_detail']").fadeIn(1000)
+                    $("#newrecgen").fadeIn(1000)
                     $("#myFormRecieptData").fadeIn(1000)
 
 
@@ -642,7 +689,12 @@
                 }
             });
             // var form = document.getElementById('myForm').reset();
+
+
         });
+
+
+
 
 
 
@@ -680,6 +732,73 @@
 
 
     });
+
+
+
+
+
+    const checkPanValid = () => {
+
+        let panNumber = $("#panInput").val()
+
+        let data = {
+            panNumber: panNumber,
+            checkPan: "checkPan"
+        }
+
+
+        $.get("../phpAjax/mambershipAjax.php", data,
+            function(data) {
+
+
+
+
+
+
+                if (data.success) {
+
+                    if (data.pan_is_available) {
+
+
+
+                        alert("Pan is already registered ")
+
+
+
+                        console.log("fkerfjroi");
+                        console.log(data);
+
+
+
+                        $("#remarks_area").removeClass("hidden")
+                        $("#mamber_name").text(data.mamber_name)
+                        $("#mamber_number").text(data.mamber_number)
+
+
+
+
+
+
+                    }
+
+
+                }
+
+
+
+
+
+
+
+            },
+            "json"
+        ).fail(error => {
+
+
+            console.log(error.responseText);
+        })
+
+    }
 </script>
 
 
@@ -1105,5 +1224,59 @@ ${receipt_no}
 
 
 <script src="../js/reciept.js"></script>
+<script>
+    // Validate PAN format
+    function validatePAN(pan) {
+        var panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+        const inputField = document.getElementById('panInput');
+        const resultField = document.getElementById('result');
+
+        if (panRegex.test(pan)) {
+            inputField.style.borderColor = "green"; // Apply green border
+            resultField.textContent = "Valid PAN";
+            resultField.style.color = "green";
+        } else {
+            inputField.style.borderColor = "red"; // Apply red border
+            resultField.textContent = "Invalid PAN";
+            resultField.style.color = "red";
+        }
+    }
+
+    // Restrict input and validate PAN
+    function validateInput() {
+        const panInput = document.getElementById('panInput');
+        let value = panInput.value.toUpperCase(); // Ensure input is uppercase
+        let formattedValue = '';
+
+        // Allow only the valid PAN pattern during input
+        for (let i = 0; i < value.length; i++) {
+            if (i < 5 && /[A-Z]/.test(value[i])) {
+                formattedValue += value[i]; // First 5 chars: Letters
+            } else if (i >= 5 && i < 9 && /[0-9]/.test(value[i])) {
+                formattedValue += value[i]; // Next 4 chars: Digits
+            } else if (i == 9 && /[A-Z]/.test(value[i])) {
+                formattedValue += value[i]; // Last char: Letter
+            }
+        }
+
+        // Set the value back to the input field
+        panInput.value = formattedValue;
+
+        // Validate the PAN once input is complete
+        if (formattedValue.length === 10) {
+            validatePAN(formattedValue);
+        } else {
+            panInput.style.borderColor = "red"; // Apply red border for incomplete input
+            document.getElementById('result').textContent = "Incomplete PAN";
+            document.getElementById('result').style.color = "orange";
+        }
+    }
+
+    // Reset the input border to default on focus
+    function resetBorder() {
+        document.getElementById('panInput').style.borderColor = "#ccc"; // Reset to default
+    }
+</script>
+
 
 </html>

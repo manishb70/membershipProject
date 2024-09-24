@@ -49,7 +49,7 @@
                             <label
                                 class="block w-60 mb-1 font-bold text-xs font-medium text-gray-900 dark:text-white">Year
                                 of Membership : </label>
-                            <select id="year_of_membership" name="year_of_membership"
+                            <select id="year_of_membership" name="year_of_membership" onchange="getReciptDataAttr()"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-8 pl-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected disabled>Select One</option>
                                 <option value="2018-19">2018-19</option>
@@ -579,32 +579,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
             $('button[type="submit"]').on('click', function(event) {
 
                 event.preventDefault();
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -672,10 +649,13 @@
                 });
                 // var form = document.getElementById('myForm').reset();
             });
+
+
+
+
+
+
         });
-
-
-
 
 
 
@@ -734,7 +714,6 @@
             console.log(balance)
 
 
-            
 
             $("#balance").val(balance)
 
@@ -771,13 +750,13 @@
                 let input = element.querySelector("input[type='checkbox']")
 
 
-           
 
 
 
-                    let paid_amount = $("input[name='paid_amount']").val()
 
-                    totalPaidAmount = totalPaidAmount + parseInt(paid_amount)
+                let paid_amount = $("input[name='paid_amount']").val()
+
+                totalPaidAmount = totalPaidAmount + parseInt(paid_amount)
 
 
 
@@ -916,6 +895,10 @@
 
 
         }
+    
+    
+    
+    
     </script>
 
 </body>

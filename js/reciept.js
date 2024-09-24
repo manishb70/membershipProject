@@ -266,7 +266,8 @@ const getReciptDataAttr = (event) => {
 
 
     let membershipType = $("#membership_type").val()
-
+    let year_of_membership = $("#year_of_membership").val()
+    
 
     console.log(membershipType);
 
@@ -274,12 +275,15 @@ const getReciptDataAttr = (event) => {
 
 
 
-    $.get("../phpAJax/receiptAjax.php", { getReciptAttr: "getReciptAttr", membershipType: membershipType }, function (data) {
+    $.get("../phpAJax/receiptAjax.php", { getReciptAttr: "getReciptAttr", membershipType: membershipType,year_of_membership:year_of_membership }, function (data) {
 
         console.log(data);
-        console.log(data.data[0]);
+        // console.log(data.data[0]);
         let recData = data.data[0]
 
+        console.log("fkoiejfiefj");
+
+        
         $("#year_of_membership").val(recData.year_of_membership)
         $("#one_time_enrollment").val(recData.one_time_enrollment)
         $("#yearly_charges").val(recData.yearly_charges)

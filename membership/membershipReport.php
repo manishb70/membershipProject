@@ -290,54 +290,57 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
 
-    <div class="relative mx-auto mt-4 overflow-x-auto shadow-md sm:rounded-lg ">
+    <div style="width: 80%;" class="relative mx-auto mt-4 overflow-x-auto shadow-md sm:rounded-lg ">
         <table class=" text-sm mx-auto text-left rtl:text-right text-gray-500 dark:text-gray-400"">
 
-            <thead class=" text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <thead class=" text-xs text-gray-700 whitespace-nowrap uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                membership_no
+                membership no
                 </th>
                 <th scope="col" class="px-6 py-3">
-                company_address
+                company address
                 </th>
                 <th scope="col" class="px-6 py-3">
-                company_email_id
+                company name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                company email id
                 </th>
                 <th scope="col" class="px-6 py-3">
                 category
                 </th>
                 <th scope="col" class="px-6 py-3">
-                person_name
+                person name
                 </th>
 
                 <th scope="col" class="px-6 py-3">
-                person_email_id
+                person email id
                 </th>
                 <th scope="col" class="px-6 py-3">
-                person_phone_no
+                person phone no
                 </th>
 
                 <th scope="col" class="px-6 py-3">
-                udayam_aadhar_card
+                udayam aadhar card
                 </th>
                 <th scope="col" class="px-6 py-3">
-                old_membership_number
+                old membership number
                 </th>
                 <th scope="col" class="px-6 py-3">
-                pan_no
+                pan no
                 </th>
                 <th scope="col" class="px-6 py-3">
-                gst_no
+                gst no
                 </th>
                 <th scope="col" class="px-6 py-3">
-                active_status
+                active status
                 </th>
                 <th scope="col" class="px-6 py-3">
-                start_date
+                start date
                 </th>
                 <th scope="col" class="px-6 py-3">
-                end_date
+                end date
                 </th>
              
                 <!-- <th scope="col" class="px-6 py-3">
@@ -349,7 +352,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </th> -->
             </tr>
             </thead>
-            <tbody>
+            <tbody >
 
 
 
@@ -367,6 +370,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         ' . ($isEditable ? "<input class='formInputData'  name='id' disabled style='max-width:80px' id=" . $row["membership_no"] . "  margin-left:0' value=" . $row["membership_no"] . ">" : $row["membership_no"]) . '
                     </th>
                     <td class=px-6 py-4">
+                        ' . ($isEditable ? "<input class='formInputData' name='username' disabled style='max-width:80px'  margin-left:0' value=" . $row["company_name"] . ">" : $row["company_name"]) . '
+                    </td>
+                    <td class=px-6 py-4">
                         ' . ($isEditable ? "<input class='formInputData' name='username' disabled style='max-width:80px'  margin-left:0' value=" . $row["company_address"] . ">" : $row["company_address"]) . '
                     </td>
                     <td class="px-6 py-4">
@@ -382,6 +388,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                     <td class="px-6 py-4">
                         ' . ($isEditable ? "<input  type='date' class='formInputData' name='start_date' disabled style='max-width:80px'  margin-left:0' value=" . $row["person_email_id"] . ">" : $row["person_email_id"]) . '
+                    </td>
+                    <td class="px-6 py-4">
+                       
+                         ' . ($isEditable ? "<input class='formInputData' name='end_date' disabled style='max-width:80px'  margin-left:0' value=" . $row["person_phone_no"] . ">" : $row["person_phone_no"]) . '
                     </td>
                     <td class="px-6 py-4">
                        

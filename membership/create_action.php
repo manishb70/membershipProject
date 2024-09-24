@@ -2,7 +2,6 @@
 
 include("./db.php");
 
-// $membership_no = $_POST['membership_no'];
 $creation_date = isset($_POST['creation_date']) ? $_POST['creation_date'] : date('Y-m-d');
 $starting_fy = $_POST['starting_fy'];
 $company_name = $_POST['company_name'];
@@ -15,35 +14,55 @@ $person_email_id = $_POST['person_email_id'];
 $person_phone_no = $_POST['person_phone_no'];
 $udayam_aadhar_card = $_POST['udayam_aadhar_card'];
 $old_membership_number = $_POST['old_membership_number'];
+$user_remarks = isset($_POST['user_remarks']) ? $_POST['user_remarks'] : "";
 $start_date = $_POST['start_date'];
 $end_date = $_POST['End_date'];
 
 $pan_no = $_POST['pan_no'];
 $gst_no = $_POST['gst_no'];
 
-
-
-
-
-$sql = "INSERT INTO member_table ( creation_date, starting_fy, company_name, company_address, company_email_id, category, person_name, person_email_id, person_phone_no, udayam_aadhar_card, old_membership_number, pan_no, gst_no,end_date,start_date)
-
-VALUES ( ?, ?, ?,?, ?, ?, ?, ?,? ,?,?,?,?,?,?)";
-
-
-
-
+$sql = "INSERT INTO member_table (
+    creation_date, 
+    starting_fy, 
+    company_name, 
+    company_address, 
+    company_email_id, 
+    category, 
+    person_name, 
+    person_email_id, 
+    person_phone_no, 
+    udayam_aadhar_card, 
+    old_membership_number, 
+    pan_no, 
+    gst_no, 
+    end_date, 
+    start_date, 
+    remarks
+) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 $stmt = $conn->prepare($sql);
 
+$stmt->bind_param(
+    "ssssssssssssssss", 
+    $creation_date, 
+    $starting_fy, 
+    $company_name, 
+    $company_address, 
+    $company_email_id, 
+    $category, 
+    $person_name, 
+    $person_email_id, 
+    $person_phone_no, 
+    $udayam_aadhar_card, 
+    $old_membership_number, 
+    $pan_no, 
+    $gst_no, 
+    $end_date, 
+    $start_date, 
+    $user_remarks
+);
 
-
-
-$stmt->bind_param("sssssssssssssss", $creation_date, $starting_fy, $company_name, $company_address, $company_email_id, $category, $person_name, $person_email_id, $person_phone_no, $udayam_aadhar_card, $old_membership_number, $pan_no, $gst_no,$end_date,$start_date);
-
-
-
-// $result = $conn->query($sql);
- $result = $stmt->execute(); 
+$result = $stmt->execute();
 
 
 

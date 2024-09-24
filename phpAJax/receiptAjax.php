@@ -222,10 +222,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
         $membershipType = $_GET['membershipType'];
+        $year_of_membership = $_GET['year_of_membership'];
 
 
 
-        $sql = "SELECT * FROM membership_project.financial_year_fees where membership_type=  '$membershipType' ;";
+        $sql = "SELECT * FROM membership_project.financial_year_fees where membership_type=  '$membershipType' and   year_of_membership='$year_of_membership' ;";
 
 
 
